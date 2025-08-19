@@ -1,13 +1,157 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Import a modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Define color variables for easy theme management */
+:root {
+  --primary-color: #00aaff;
+  --background-gradient-start: #2c3e50;
+  --background-gradient-end: #4ca1af;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.2);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background: linear-gradient(to right, var(--background-gradient-start), var(--background-gradient-end));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Main App Container */
+.App {
+  width: 100%;
+  max-width: 800px;
+  min-height: 500px;
+  background: var(--glass-bg);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  padding: 30px;
+  text-align: center;
+}
+
+/* Header & Navigation */
+.header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.header nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  background-color: var(--glass-bg);
+}
+
+/* Page Titles */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Candidate and Results Styling */
+.candidates-container, .results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.candidate-card, .result-item {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.candidate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px 0 var(--shadow-color);
+}
+
+.candidate-name, .result-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.vote-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+/* Button Styling */
+.vote-button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.vote-button:hover {
+  background-color: #0099e6;
+  transform: scale(1.05);
+}
+
+.vote-button:active {
+    transform: scale(0.98);
+}
+
+/* Leading Candidate Display */
+.leading-candidate {
+    margin-top: 30px;
+    padding: 20px;
+    background: var(--primary-color);
+    border-radius: 15px;
+}
+
+.leading-candidate h2 {
+    color: var(--text-color);
+    margin: 0;
 }
